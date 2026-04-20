@@ -1,0 +1,1 @@
+This is Stackd - a booking app for service businesses like hairstylists, personal trainers, and interviewers. Businesses get a public booking page at /book/[username]. Clients can pick a time slot and pay a deposit. Stack: Next.js 14, Tailwind CSS, TypeScript, Supabase for database, Stripe for payments, Twilio for SMS.
