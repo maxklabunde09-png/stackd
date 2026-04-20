@@ -37,7 +37,7 @@ export default function BookingPage() {
       <main className="flex-1 max-w-lg mx-auto w-full px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-900">Maya's Hair Studio</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Maya&apos;s Hair Studio</h1>
           <p className="text-gray-500 text-sm mt-1">Minneapolis, MN</p>
           <p className="text-gray-700 font-medium mt-3">Tuesday, April 22</p>
         </div>
