@@ -4,79 +4,48 @@ import Navbar from "./components/Navbar";
 const NAVY = "#0A2540";
 const LIGHT_BLUE = "#E8F4FD";
 
-const stats = [
-  { value: "2,400+", label: "Businesses" },
-  { value: "98%", label: "Show-up Rate" },
-  { value: "47,000+", label: "Bookings Completed" },
-  { value: "4.9 / 5", label: "Average Rating" },
-];
-
 const features = [
   {
-    icon: "📅",
-    title: "Live availability, always",
+    title: "Your own booking page in minutes",
     description:
-      "Clients book directly into your calendar. No back-and-forth, no double-bookings — just appointments that fit your real schedule.",
+      "Pick your services, set your hours, and you're live. Clients get a clean, professional page that works on any device — no app download required.",
+    accent: "#C5DFF2",
+    accentDark: "#A3CBE8",
   },
   {
-    icon: "💳",
-    title: "Deposits collected at booking",
+    title: "Payments built in from day one",
     description:
-      "Require a deposit via Stripe when a client books. Every appointment is backed by real commitment before you pick up your tools.",
+      "Collect a deposit the moment someone books. Powered by Stripe, payouts go directly to your bank. No invoices, no chasing — just money in your account.",
+    accent: "#B8D8EF",
+    accentDark: "#93C2E2",
   },
   {
-    icon: "🔔",
-    title: "Automated SMS reminders",
+    title: "Automatic reminders that eliminate no-shows",
     description:
-      "Reminders go out 24 hours and 1 hour before every appointment — so clients show up and you keep your hard-earned revenue.",
+      "SMS reminders fire 24 hours and 1 hour before every appointment. Clients who almost forgot show up. Your calendar fills. Your income stays predictable.",
+    accent: "#C8E3F4",
+    accentDark: "#A8CEE8",
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "Set your availability",
+    title: "Create your page",
     description:
-      "Choose your working hours, services, and deposit amount. Takes less than 5 minutes to go live.",
+      "Add your services, pricing, and availability. Your Stackd booking page is live the moment you finish setup.",
   },
   {
     number: "02",
-    title: "Share your booking link",
+    title: "Share your link",
     description:
-      "Your personalized link goes on your Instagram bio, website, or anywhere clients will find you.",
+      "Drop your link in your Instagram bio, send it in a text, or add it to your website. One link does everything.",
   },
   {
     number: "03",
     title: "Get booked and paid",
     description:
-      "Clients pick a time, pay the deposit, and get a confirmation instantly. You just show up.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Before Stackd, I was texting every client to confirm appointments one by one. Now my chair is full and I haven't chased a single person in two months. The deposit feature alone paid for itself the first week.",
-    name: "Maya Robinson",
-    role: "Hairstylist · New York, NY",
-    initials: "MR",
-    accentBg: "#1A6B9A",
-  },
-  {
-    quote:
-      "I used to lose $200–$400 a week to no-shows. Stackd dropped that to almost zero. My clients respect the booking because they've already put skin in the game. I can't imagine running my training business without it.",
-    name: "Carlos Mendez",
-    role: "Personal Trainer · Austin, TX",
-    initials: "CM",
-    accentBg: "#145E8A",
-  },
-  {
-    quote:
-      "As an interview coach, my clients are already anxious — the last thing they need is a clunky booking experience. Stackd is clean, fast, and professional. It sets the right tone before we even meet.",
-    name: "Priya Kapoor",
-    role: "Interview Coach · San Francisco, CA",
-    initials: "PK",
-    accentBg: "#0E5278",
+      "Clients pick a slot, pay a deposit, and receive a confirmation. You focus on the work — Stackd handles the rest.",
   },
 ];
 
@@ -90,7 +59,7 @@ const plans = [
       "1 booking page",
       "Unlimited appointments",
       "Email confirmations",
-      "Basic analytics dashboard",
+      "Basic analytics",
     ],
     cta: "Start for free",
     highlight: false,
@@ -115,60 +84,27 @@ const plans = [
   },
 ];
 
-const phoneServices = [
-  { name: "Haircut & Style", price: "$45", time: "45 min", selected: false },
-  { name: "Full Color", price: "$120", time: "2 hr", selected: true },
-  { name: "Blowout", price: "$55", time: "30 min", selected: false },
-];
-
-const phoneSlots = ["9:00am", "10:30am", "12:00pm", "2:00pm", "3:30pm", "5:00pm"];
-
 export default function HomePage() {
   return (
     <>
       <style>{`
         @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(28px); }
+          from { opacity: 0; transform: translateY(24px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
-          50%       { transform: translateY(-16px) rotate(-1.5deg); }
+        .anim-1 { animation: fadeUp 0.6s ease 0.05s both; }
+        .anim-2 { animation: fadeUp 0.6s ease 0.18s both; }
+        .anim-3 { animation: fadeUp 0.6s ease 0.32s both; }
+        .anim-4 { animation: fadeUp 0.6s ease 0.46s both; }
+        .nav-link { transition: color 0.15s ease; }
+        .nav-link:hover { color: #0A2540; }
+        .cta-primary {
+          transition: opacity 0.15s ease, transform 0.15s ease;
         }
-        .anim-1 { animation: fadeUp 0.65s ease 0.08s both; }
-        .anim-2 { animation: fadeUp 0.65s ease 0.22s both; }
-        .anim-3 { animation: fadeUp 0.65s ease 0.38s both; }
-        .phone-float { animation: float 5.5s ease-in-out infinite; }
-        .feat-card {
-          transition: transform 0.22s ease, box-shadow 0.22s ease;
-        }
-        .feat-card:hover {
-          transform: translateY(-7px);
-          box-shadow: 0 28px 52px rgba(10,37,64,0.13);
-        }
-        .cta-btn {
-          transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-        .cta-btn:hover {
-          transform: scale(1.035);
-          box-shadow: 0 12px 32px rgba(10,37,64,0.32);
-        }
-        .outline-btn {
-          transition: background 0.18s ease, color 0.18s ease;
-        }
-        .outline-btn:hover {
-          background: #0A2540;
-          color: #fff;
-        }
-        .plan-card {
-          transition: transform 0.22s ease;
-        }
-        .plan-card:hover {
-          transform: translateY(-4px);
-        }
-        .footer-link {
-          transition: color 0.15s ease;
-        }
+        .cta-primary:hover { opacity: 0.9; transform: scale(1.02); }
+        .plan-card { transition: transform 0.2s ease; }
+        .plan-card:hover { transform: translateY(-4px); }
+        .footer-link { transition: color 0.15s ease; }
         .footer-link:hover { color: #fff; }
       `}</style>
 
@@ -176,284 +112,194 @@ export default function HomePage() {
         <Navbar />
 
         {/* ━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section
-          className="relative flex items-center"
-          style={{ minHeight: "92vh" }}
-        >
-          {/* Ambient glow */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: `radial-gradient(ellipse 65% 65% at 72% 48%, ${LIGHT_BLUE} 0%, transparent 68%)`,
-            }}
-          />
-
-          <div className="relative max-w-6xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-16 items-center w-full">
-            {/* ── Left copy */}
-            <div>
-              <div
-                className="anim-1 inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-8"
-                style={{ backgroundColor: LIGHT_BLUE, color: NAVY }}
-              >
-                <span
-                  style={{
-                    width: 7,
-                    height: 7,
-                    borderRadius: "50%",
-                    background: "#18B981",
-                    display: "inline-block",
-                    flexShrink: 0,
-                  }}
-                />
-                Loved by 2,400+ service pros
-              </div>
-
-              <h1
-                className="anim-2 text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6"
-                style={{ color: NAVY }}
-              >
-                Book more clients.<br />
-                Chase zero of them.
-              </h1>
-
-              <p className="anim-2 text-lg text-gray-500 max-w-lg mb-10 leading-relaxed">
-                Stackd gives hairstylists, trainers, and coaches a stunning
-                booking page with built-in payments and SMS reminders. Set it up
-                in 5 minutes.
-              </p>
-
-              <div className="anim-3 flex flex-wrap gap-4">
-                <Link
-                  href="/#pricing"
-                  className="cta-btn inline-block font-bold px-8 py-4 rounded-xl text-base text-white"
-                  style={{
-                    backgroundColor: NAVY,
-                    boxShadow: `0 8px 24px rgba(10,37,64,0.28)`,
-                  }}
-                >
-                  Get started free
-                </Link>
-                <Link
-                  href="/book/maya"
-                  className="outline-btn inline-block font-bold px-8 py-4 rounded-xl text-base border-2"
-                  style={{ borderColor: NAVY, color: NAVY }}
-                >
-                  See a live page →
-                </Link>
-              </div>
-
-              <p className="anim-3 text-sm text-gray-400 mt-5">
-                No credit card required. Free forever on the starter plan.
-              </p>
+        <section className="py-28 md:py-36" style={{ backgroundColor: LIGHT_BLUE }}>
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <div
+              className="anim-1 inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-8"
+              style={{ background: "rgba(10,37,64,0.08)", color: NAVY }}
+            >
+              Now in early access
             </div>
 
-            {/* ── Right: Phone mockup */}
-            <div className="hidden md:flex justify-center items-center">
-              <div
-                className="phone-float relative"
-                style={{ width: 288, height: 572 }}
+            <h1
+              className="anim-2 text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6"
+              style={{ color: NAVY }}
+            >
+              Get booked.<br />
+              Get paid.<br />
+              Zero no-shows.
+            </h1>
+
+            <p className="anim-3 text-lg text-gray-600 max-w-xl mx-auto mb-10 leading-relaxed">
+              Stackd gives service businesses a beautiful booking page with
+              payments and automatic reminders built in.
+            </p>
+
+            <form
+              className="anim-4 flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4"
+              action="/signup"
+              method="get"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                className="flex-1 px-5 py-3.5 rounded-xl border text-sm outline-none focus:ring-2"
+                style={{
+                  borderColor: "#C8DFF0",
+                  background: "#fff",
+                  color: NAVY,
+                }}
+              />
+              <Link
+                href="/signup"
+                className="cta-primary font-bold px-6 py-3.5 rounded-xl text-sm text-white text-center whitespace-nowrap"
+                style={{
+                  backgroundColor: NAVY,
+                  boxShadow: `0 4px 16px rgba(10,37,64,0.25)`,
+                }}
               >
-                {/* Phone shell */}
-                <div
-                  className="absolute inset-0 rounded-[3rem]"
-                  style={{
-                    background: NAVY,
-                    boxShadow: `0 48px 96px rgba(10,37,64,0.42), 0 0 0 1.5px rgba(255,255,255,0.08) inset`,
-                  }}
-                />
-                {/* Dynamic island / notch */}
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 rounded-full"
-                  style={{
-                    top: 14,
-                    width: 90,
-                    height: 26,
-                    background: "#000",
-                    zIndex: 10,
-                  }}
-                />
-                {/* Screen */}
-                <div
-                  className="absolute overflow-hidden"
-                  style={{
-                    inset: 6,
-                    borderRadius: "2.55rem",
-                    background: "#fff",
-                    zIndex: 5,
-                  }}
-                >
-                  {/* Profile header */}
+                Get started free
+              </Link>
+            </form>
+
+            <p className="anim-4 text-xs text-gray-400">
+              Free forever on the starter plan. No credit card required.
+            </p>
+
+            {/* Booking page mockup */}
+            <div
+              className="anim-4 mt-16 rounded-2xl overflow-hidden border mx-auto text-left"
+              style={{
+                maxWidth: 440,
+                borderColor: "#C8DFF0",
+                boxShadow: `0 24px 64px rgba(10,37,64,0.14)`,
+              }}
+            >
+              {/* Mockup header */}
+              <div
+                className="px-6 py-5 border-b"
+                style={{ background: NAVY, borderColor: "rgba(255,255,255,0.1)" }}
+              >
+                <div className="flex items-center gap-3">
                   <div
-                    className="px-5 pt-14 pb-5"
-                    style={{ background: LIGHT_BLUE }}
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-extrabold text-white shrink-0"
+                    style={{ background: "#1A6B9A" }}
                   >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div
-                        className="rounded-full flex items-center justify-center text-white text-sm font-extrabold shrink-0"
-                        style={{ width: 46, height: 46, background: NAVY }}
-                      >
-                        MJ
-                      </div>
-                      <div>
-                        <p
-                          className="font-extrabold text-sm"
-                          style={{ color: NAVY }}
-                        >
-                          Maya Johnson
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          Hairstylist · New York, NY
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-xs text-gray-400 mt-1">
-                      Book your appointment below
-                    </p>
+                    MH
                   </div>
-
-                  {/* Services */}
-                  <div className="px-5 pt-4">
-                    <p
-                      className="text-xs font-bold uppercase tracking-wider mb-3"
-                      style={{ color: "#9CA3AF" }}
-                    >
-                      Services
-                    </p>
-                    {phoneServices.map((s) => (
-                      <div
-                        key={s.name}
-                        className="flex items-center justify-between mb-2 px-3 py-2.5 rounded-xl"
-                        style={{
-                          background: s.selected ? LIGHT_BLUE : "#F9FAFB",
-                          border: s.selected
-                            ? `1.5px solid ${NAVY}`
-                            : "1.5px solid transparent",
-                        }}
-                      >
-                        <div>
-                          <p
-                            className="text-xs font-semibold"
-                            style={{ color: NAVY }}
-                          >
-                            {s.name}
-                          </p>
-                          <p className="text-xs text-gray-400">{s.time}</p>
-                        </div>
-                        <span
-                          className="text-xs font-bold"
-                          style={{ color: NAVY }}
-                        >
-                          {s.price}
-                        </span>
-                      </div>
-                    ))}
+                  <div>
+                    <p className="text-sm font-bold text-white">Maya&apos;s Hair Studio</p>
+                    <p className="text-xs" style={{ color: "#7EBEDF" }}>Brooklyn, NY · Hairstylist</p>
                   </div>
+                </div>
+              </div>
 
-                  {/* Time slots */}
-                  <div className="px-5 pt-3">
-                    <p
-                      className="text-xs font-bold uppercase tracking-wider mb-3"
-                      style={{ color: "#9CA3AF" }}
-                    >
-                      Today&apos;s Slots
-                    </p>
-                    <div className="grid grid-cols-3 gap-1.5">
-                      {phoneSlots.map((t, i) => (
-                        <div
-                          key={t}
-                          className="text-center py-2 rounded-xl text-xs font-semibold"
-                          style={{
-                            background: i === 2 ? NAVY : LIGHT_BLUE,
-                            color: i === 2 ? "#fff" : NAVY,
-                          }}
-                        >
-                          {t}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+              {/* Mockup body */}
+              <div className="px-6 py-5" style={{ background: "#fff" }}>
+                <p
+                  className="text-xs font-bold uppercase tracking-wider mb-4"
+                  style={{ color: "#9CA3AF" }}
+                >
+                  Choose a time — Thursday, Apr 24
+                </p>
 
-                  {/* Book button */}
-                  <div className="px-5 pt-4">
+                <div className="grid grid-cols-3 gap-2 mb-5">
+                  {[
+                    { time: "10:00am", avail: true, sel: false },
+                    { time: "11:30am", avail: true, sel: true },
+                    { time: "1:00pm",  avail: true, sel: false },
+                    { time: "2:30pm",  avail: false, sel: false },
+                    { time: "4:00pm",  avail: true, sel: false },
+                    { time: "5:30pm",  avail: true, sel: false },
+                  ].map((s) => (
                     <div
-                      className="w-full py-3 rounded-xl text-center text-xs font-extrabold text-white"
-                      style={{ background: NAVY }}
+                      key={s.time}
+                      className="py-2.5 rounded-xl text-center text-xs font-semibold"
+                      style={
+                        s.sel
+                          ? { background: NAVY, color: "#fff" }
+                          : s.avail
+                          ? { background: LIGHT_BLUE, color: NAVY }
+                          : { background: "#F3F4F6", color: "#D1D5DB" }
+                      }
                     >
-                      Book · Pay $20 Deposit
+                      {s.time}
                     </div>
+                  ))}
+                </div>
+
+                <div
+                  className="flex items-center justify-between px-4 py-3 rounded-xl mb-4"
+                  style={{ background: LIGHT_BLUE }}
+                >
+                  <div>
+                    <p className="text-xs font-bold" style={{ color: NAVY }}>Haircut &amp; Style</p>
+                    <p className="text-xs text-gray-400">45 min · $10 deposit required</p>
                   </div>
+                  <p className="text-sm font-extrabold" style={{ color: NAVY }}>$45</p>
+                </div>
+
+                <div
+                  className="w-full py-3.5 rounded-xl text-center text-sm font-extrabold text-white"
+                  style={{ background: NAVY }}
+                >
+                  Confirm Booking
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ━━ SOCIAL PROOF BAR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section
-          className="border-y"
-          style={{ borderColor: "#D8EAF5", background: "#fff" }}
-        >
-          <div className="max-w-5xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p
-                  className="text-3xl font-extrabold mb-1"
-                  style={{ color: NAVY }}
-                >
-                  {s.value}
-                </p>
-                <p className="text-sm text-gray-500">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* ━━ FEATURES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section
-          id="features"
-          className="py-32"
-          style={{ backgroundColor: LIGHT_BLUE }}
-        >
+        <section id="features" className="py-24 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <p
               className="text-center text-xs font-bold uppercase tracking-widest mb-4"
               style={{ color: NAVY }}
             >
-              Why Stackd
+              Features
             </p>
             <h2
-              className="text-4xl font-extrabold text-center mb-4 tracking-tight"
+              className="text-4xl font-extrabold text-center mb-20 tracking-tight"
               style={{ color: NAVY }}
             >
-              Built for pros who hate admin
+              Everything your business needs
             </h2>
-            <p className="text-center text-gray-500 mb-16 text-base max-w-xl mx-auto">
-              Everything you need to fill your calendar and protect your income
-              — nothing you don&apos;t.
-            </p>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {features.map((f) => (
+            <div className="space-y-28">
+              {features.map((f, i) => (
                 <div
                   key={f.title}
-                  className="feat-card bg-white rounded-2xl p-8 border"
-                  style={{ borderColor: "#C8DFF0" }}
+                  className={`grid md:grid-cols-2 gap-12 items-center ${
+                    i % 2 === 1 ? "md:[direction:rtl]" : ""
+                  }`}
                 >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-6"
-                    style={{ backgroundColor: LIGHT_BLUE }}
-                  >
-                    {f.icon}
+                  {/* Text */}
+                  <div className={i % 2 === 1 ? "md:[direction:ltr]" : ""}>
+                    <h3
+                      className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight"
+                      style={{ color: NAVY }}
+                    >
+                      {f.title}
+                    </h3>
+                    <p className="text-gray-500 leading-relaxed">{f.description}</p>
                   </div>
-                  <h3
-                    className="text-lg font-bold mb-3"
-                    style={{ color: NAVY }}
+
+                  {/* Colored placeholder */}
+                  <div
+                    className="rounded-2xl h-64 md:h-72 flex items-center justify-center"
+                    style={{
+                      background: `linear-gradient(135deg, ${f.accent} 0%, ${f.accentDark} 100%)`,
+                    }}
                   >
-                    {f.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {f.description}
-                  </p>
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl"
+                      style={{ background: "rgba(10,37,64,0.12)" }}
+                    >
+                      {i === 0 ? "📅" : i === 1 ? "💳" : "🔔"}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -461,7 +307,7 @@ export default function HomePage() {
         </section>
 
         {/* ━━ HOW IT WORKS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="py-32 bg-white">
+        <section className="py-28" style={{ backgroundColor: LIGHT_BLUE }}>
           <div className="max-w-5xl mx-auto px-6">
             <p
               className="text-center text-xs font-bold uppercase tracking-widest mb-4"
@@ -470,24 +316,20 @@ export default function HomePage() {
               How it works
             </p>
             <h2
-              className="text-4xl font-extrabold text-center mb-4 tracking-tight"
+              className="text-4xl font-extrabold text-center mb-20 tracking-tight"
               style={{ color: NAVY }}
             >
               Up and running in minutes
             </h2>
-            <p className="text-center text-gray-500 mb-20 text-base">
-              Three steps. No tech skills required.
-            </p>
 
             <div className="grid md:grid-cols-3 gap-10 relative">
-              {/* Connector line */}
               <div
                 className="hidden md:block absolute h-px"
                 style={{
                   top: 32,
                   left: "calc(16.66% + 28px)",
                   right: "calc(16.66% + 28px)",
-                  background: `linear-gradient(to right, ${LIGHT_BLUE}, rgba(10,37,64,0.18), ${LIGHT_BLUE})`,
+                  background: `linear-gradient(to right, rgba(10,37,64,0.15), rgba(10,37,64,0.35), rgba(10,37,64,0.15))`,
                 }}
               />
               {steps.map((step) => (
@@ -513,73 +355,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ━━ TESTIMONIALS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="py-32" style={{ backgroundColor: NAVY }}>
-          <div className="max-w-5xl mx-auto px-6">
-            <p
-              className="text-center text-xs font-bold uppercase tracking-widest mb-4"
-              style={{ color: "#7EBEDF" }}
-            >
-              Testimonials
-            </p>
-            <h2 className="text-4xl font-extrabold text-center mb-4 tracking-tight text-white">
-              Pros who switched to Stackd
-            </h2>
-            <p
-              className="text-center mb-16 text-base"
-              style={{ color: "#7EBEDF" }}
-            >
-              Real businesses. Real results.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonials.map((t) => (
-                <div
-                  key={t.name}
-                  className="rounded-2xl p-8 flex flex-col"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.09)",
-                  }}
-                >
-                  <div className="flex gap-0.5 mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} style={{ color: "#F5C518", fontSize: 15 }}>
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-white text-sm leading-relaxed flex-1 mb-8">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-extrabold text-white shrink-0"
-                      style={{ background: t.accentBg }}
-                    >
-                      {t.initials}
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-semibold">
-                        {t.name}
-                      </p>
-                      <p className="text-xs" style={{ color: "#7EBEDF" }}>
-                        {t.role}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ━━ PRICING ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section
-          id="pricing"
-          className="py-32"
-          style={{ backgroundColor: LIGHT_BLUE }}
-        >
+        <section id="pricing" className="py-28 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <p
               className="text-center text-xs font-bold uppercase tracking-widest mb-4"
@@ -594,7 +371,7 @@ export default function HomePage() {
               Simple, honest pricing
             </h2>
             <p className="text-center text-gray-500 mb-16 text-base">
-              Start free. Upgrade when you&apos;re ready to scale.
+              Start free. Upgrade when you&apos;re ready to grow.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -607,11 +384,11 @@ export default function HomePage() {
                       ? {
                           background: NAVY,
                           color: "#fff",
-                          boxShadow: `0 32px 64px rgba(10,37,64,0.28)`,
+                          boxShadow: `0 24px 56px rgba(10,37,64,0.26)`,
                         }
                       : {
                           background: "#fff",
-                          border: "1.5px solid #C8DFF0",
+                          border: `1.5px solid #C8DFF0`,
                         }
                   }
                 >
@@ -643,9 +420,7 @@ export default function HomePage() {
 
                   <p
                     className="text-sm mb-8"
-                    style={{
-                      color: plan.highlight ? "#A8D4EF" : "#6B7280",
-                    }}
+                    style={{ color: plan.highlight ? "#A8D4EF" : "#6B7280" }}
                   >
                     {plan.description}
                   </p>
@@ -657,10 +432,7 @@ export default function HomePage() {
                           className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                           style={
                             plan.highlight
-                              ? {
-                                  background: "rgba(255,255,255,0.14)",
-                                  color: "#fff",
-                                }
+                              ? { background: "rgba(255,255,255,0.14)", color: "#fff" }
                               : { background: LIGHT_BLUE, color: NAVY }
                           }
                         >
@@ -680,8 +452,8 @@ export default function HomePage() {
                   </ul>
 
                   <Link
-                    href="#"
-                    className="text-sm font-bold text-center py-4 rounded-xl block cta-btn"
+                    href="/signup"
+                    className="cta-primary text-sm font-bold text-center py-4 rounded-xl block"
                     style={
                       plan.highlight
                         ? { background: "#fff", color: NAVY }
@@ -696,28 +468,49 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ━━ BOTTOM CTA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="py-28 text-center" style={{ background: NAVY }}>
-          <div className="max-w-2xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-              Your next client is<br />looking for you right now.
-            </h2>
-            <p className="text-lg mb-10" style={{ color: "#7EBEDF" }}>
-              Give them a place to book. Start free in minutes.
-            </p>
-            <Link
-              href="/#pricing"
-              className="cta-btn inline-block font-bold px-10 py-5 rounded-2xl text-base"
-              style={{
-                background: LIGHT_BLUE,
-                color: NAVY,
-                boxShadow: `0 8px 32px rgba(232,244,253,0.18)`,
-              }}
+        {/* ━━ EARLY ACCESS BAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="py-24" style={{ background: NAVY }}>
+          <div className="max-w-2xl mx-auto px-6 text-center">
+            <div
+              className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
+              style={{ background: "rgba(232,244,253,0.15)", color: "#E8F4FD" }}
             >
-              Create your free booking page
-            </Link>
-            <p className="text-sm mt-5" style={{ color: "#7EBEDF" }}>
-              No credit card required. Setup takes 5 minutes.
+              Early access
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
+              Be one of the first businesses on Stackd
+            </h2>
+            <p className="mb-10" style={{ color: "#7EBEDF" }}>
+              We&apos;re onboarding our first wave of service pros. Join the
+              waitlist and we&apos;ll be in touch as soon as a spot opens.
+            </p>
+
+            <form
+              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+              action="/signup"
+              method="get"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                className="flex-1 px-5 py-3.5 rounded-xl border text-sm outline-none"
+                style={{
+                  borderColor: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.08)",
+                  color: "#fff",
+                }}
+              />
+              <Link
+                href="/signup"
+                className="cta-primary font-bold px-6 py-3.5 rounded-xl text-sm text-center whitespace-nowrap"
+                style={{ background: LIGHT_BLUE, color: NAVY }}
+              >
+                Join the waitlist
+              </Link>
+            </form>
+            <p className="text-xs mt-5" style={{ color: "#4A7A9B" }}>
+              No spam. No credit card. We&apos;ll reach out when your spot is ready.
             </p>
           </div>
         </section>
@@ -740,9 +533,9 @@ export default function HomePage() {
                 <Link href="#features" className="footer-link">Features</Link>
                 <Link href="#pricing" className="footer-link">Pricing</Link>
                 <Link href="/book/maya" className="footer-link">See Example</Link>
+                <Link href="/signup" className="footer-link">Sign Up</Link>
                 <Link href="#" className="footer-link">Privacy</Link>
                 <Link href="#" className="footer-link">Terms</Link>
-                <Link href="#" className="footer-link">Contact</Link>
               </nav>
 
               <p className="text-xs" style={{ color: "#3D6E8F" }}>
