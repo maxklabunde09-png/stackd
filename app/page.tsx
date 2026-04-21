@@ -13,16 +13,16 @@ const features = [
     accentDark: "#A3CBE8",
   },
   {
-    title: "Payments built in from day one",
+    title: "Deposit collection built in from day one",
     description:
-      "Collect a deposit the moment someone books. Powered by Stripe, payouts go directly to your bank. No invoices, no chasing — just money in your account.",
+      "Collect a client deposit the moment an appointment is confirmed. Powered by Stripe, with no manual invoicing or follow-up required.",
     accent: "#B8D8EF",
     accentDark: "#93C2E2",
   },
   {
-    title: "Automatic reminders that eliminate no-shows",
+    title: "Automated reminders that reduce cancellations",
     description:
-      "SMS reminders fire 24 hours and 1 hour before every appointment. Clients who almost forgot show up. Your calendar fills. Your income stays predictable.",
+      "SMS reminders go out 24 hours and 1 hour before every appointment, keeping clients informed and reducing last-minute cancellations.",
     accent: "#C8E3F4",
     accentDark: "#A8CEE8",
   },
@@ -43,9 +43,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Get booked and paid",
+    title: "Streamline your appointments",
     description:
-      "Clients pick a slot, pay a deposit, and receive a confirmation. You focus on the work — Stackd handles the rest.",
+      "Clients select a time, confirm with a deposit, and receive an automated confirmation. You focus on the work — Stackd manages the rest.",
   },
 ];
 
@@ -69,7 +69,7 @@ const plans = [
     name: "Pro",
     price: "$49",
     period: "/mo",
-    description: "For pros who want zero no-shows.",
+    description: "For service businesses that prioritize reliable scheduling.",
     features: [
       "Everything in Free",
       "Stripe deposit payments",
@@ -125,14 +125,14 @@ export default function HomePage() {
               className="anim-2 text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6"
               style={{ color: NAVY }}
             >
-              Get booked.<br />
-              Get paid.<br />
-              Zero no-shows.
+              Book clients.<br />
+              Collect deposits.<br />
+              Reduce cancellations.
             </h1>
 
             <p className="anim-3 text-lg text-gray-600 max-w-xl mx-auto mb-10 leading-relaxed">
-              Stackd gives service businesses a beautiful booking page with
-              payments and automatic reminders built in.
+              Stackd gives service businesses a professional booking page with
+              integrated deposit collection and automated appointment reminders.
             </p>
 
             <form
