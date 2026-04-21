@@ -8,7 +8,7 @@ const features = [
   {
     title: "Your own booking page in minutes",
     description:
-      "Pick your services, set your hours, and you're live. Clients get a clean, professional page that works on any device — no app download required.",
+      "Pick your services, set your hours, and you're live. Clients get a clean, professional page that works on any device.",
     accent: "#C5DFF2",
     accentDark: "#A3CBE8",
   },
