@@ -10,11 +10,36 @@ const businessTypes = [
   "Hairstylist",
   "Personal Trainer",
   "Interview Coach",
+  "Tutor",
+  "Photographer",
+  "Consultant",
   "Other",
+];
+
+const planOptions = [
+  {
+    id: "solo",
+    name: "Solo",
+    price: "$50/mo",
+    description: "1 user",
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    price: "$99/mo",
+    description: "Up to 5 team members",
+  },
+  {
+    id: "business",
+    name: "Business",
+    price: "$175/mo",
+    description: "Up to 25 team members",
+  },
 ];
 
 export default function SignupPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("solo");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -43,23 +68,24 @@ export default function SignupPage() {
           to   { opacity: 1; transform: translateY(0); }
         }
         .fade-in { animation: fadeUp 0.55s ease both; }
+        .field {
+          transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
         .field:focus {
           outline: none;
           border-color: #0A2540;
           box-shadow: 0 0 0 3px rgba(10,37,64,0.08);
         }
-        .submit-btn {
-          transition: opacity 0.15s ease, transform 0.15s ease;
-        }
+        .submit-btn { transition: opacity 0.15s ease, transform 0.15s ease; }
         .submit-btn:hover { opacity: 0.9; transform: scale(1.02); }
+        .plan-opt { transition: border-color 0.15s ease, background 0.15s ease; cursor: pointer; }
       `}</style>
 
-      <div
-        className="min-h-screen flex flex-col"
-        style={{ backgroundColor: LIGHT_BLUE }}
-      >
+      <div className="min-h-screen flex flex-col bg-white">
         {/* Top bar */}
-        <header className="py-5 px-6 flex items-center justify-between max-w-6xl mx-auto w-full">
+        <header
+          className="py-5 px-6 flex items-center justify-between max-w-6xl mx-auto w-full"
+        >
           <Link
             href="/"
             className="text-xl font-extrabold tracking-tight"
@@ -80,12 +106,12 @@ export default function SignupPage() {
         </header>
 
         {/* Main */}
-        <main className="flex-1 flex items-center justify-center px-6 py-16">
+        <main className="flex-1 flex items-start justify-center px-6 py-12">
           {submitted ? (
             /* ── Success state ── */
-            <div className="fade-in text-center max-w-md mx-auto">
+            <div className="fade-in text-center max-w-md mx-auto mt-16">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6"
                 style={{ background: NAVY }}
               >
                 ✓
@@ -94,11 +120,11 @@ export default function SignupPage() {
                 className="text-3xl font-extrabold mb-4 tracking-tight"
                 style={{ color: NAVY }}
               >
-                You&apos;re on the list.
+                You&apos;re on the list!
               </h1>
               <p className="text-gray-600 leading-relaxed mb-8">
-                We&apos;ll be in touch soon with everything you need to get
-                started. Keep an eye on{" "}
+                We will reach out within 24 hours to get you set up. Keep an eye
+                on{" "}
                 <span className="font-semibold" style={{ color: NAVY }}>
                   {form.email || "your inbox"}
                 </span>
@@ -115,22 +141,22 @@ export default function SignupPage() {
           ) : (
             /* ── Form state ── */
             <div
-              className="fade-in w-full max-w-md bg-white rounded-2xl p-8 md:p-10"
-              style={{ boxShadow: "0 24px 56px rgba(10,37,64,0.12)" }}
+              className="fade-in w-full max-w-lg bg-white rounded-2xl p-8 md:p-10"
+              style={{ boxShadow: "0 24px 56px rgba(10,37,64,0.10)" }}
             >
               <div className="mb-8">
                 <h1
                   className="text-2xl font-extrabold tracking-tight mb-2"
                   style={{ color: NAVY }}
                 >
-                  Create your free account
+                  Start your 30-day free trial
                 </h1>
                 <p className="text-sm text-gray-500">
-                  Be one of the first businesses on Stackd.
+                  No credit card required. Cancel anytime.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name row */}
                 <div className="grid grid-cols-2 gap-3">
                   <div>
@@ -151,10 +177,7 @@ export default function SignupPage() {
                       onChange={handleChange}
                       placeholder="Maya"
                       className="field w-full px-4 py-3 rounded-xl border text-sm"
-                      style={{
-                        borderColor: "#C8DFF0",
-                        color: NAVY,
-                      }}
+                      style={{ borderColor: "#C8DFF0", color: NAVY }}
                     />
                   </div>
                   <div>
@@ -175,10 +198,7 @@ export default function SignupPage() {
                       onChange={handleChange}
                       placeholder="Johnson"
                       className="field w-full px-4 py-3 rounded-xl border text-sm"
-                      style={{
-                        borderColor: "#C8DFF0",
-                        color: NAVY,
-                      }}
+                      style={{ borderColor: "#C8DFF0", color: NAVY }}
                     />
                   </div>
                 </div>
@@ -201,10 +221,7 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="Maya's Hair Studio"
                     className="field w-full px-4 py-3 rounded-xl border text-sm"
-                    style={{
-                      borderColor: "#C8DFF0",
-                      color: NAVY,
-                    }}
+                    style={{ borderColor: "#C8DFF0", color: NAVY }}
                   />
                 </div>
 
@@ -259,10 +276,7 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="maya@example.com"
                     className="field w-full px-4 py-3 rounded-xl border text-sm"
-                    style={{
-                      borderColor: "#C8DFF0",
-                      color: NAVY,
-                    }}
+                    style={{ borderColor: "#C8DFF0", color: NAVY }}
                   />
                 </div>
 
@@ -286,26 +300,74 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="At least 8 characters"
                     className="field w-full px-4 py-3 rounded-xl border text-sm"
-                    style={{
-                      borderColor: "#C8DFF0",
-                      color: NAVY,
-                    }}
+                    style={{ borderColor: "#C8DFF0", color: NAVY }}
                   />
                 </div>
 
+                {/* Plan selector */}
+                <div>
+                  <label
+                    className="block text-xs font-semibold mb-3"
+                    style={{ color: NAVY }}
+                  >
+                    Choose your plan
+                  </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {planOptions.map((plan) => {
+                      const selected = selectedPlan === plan.id;
+                      return (
+                        <button
+                          key={plan.id}
+                          type="button"
+                          onClick={() => setSelectedPlan(plan.id)}
+                          className="plan-opt rounded-xl p-3 text-left border-2"
+                          style={{
+                            borderColor: selected ? NAVY : "#C8DFF0",
+                            background: selected ? NAVY : "#fff",
+                          }}
+                        >
+                          <p
+                            className="text-xs font-extrabold mb-0.5"
+                            style={{ color: selected ? "#fff" : NAVY }}
+                          >
+                            {plan.name}
+                          </p>
+                          <p
+                            className="text-xs font-bold mb-1"
+                            style={{ color: selected ? "#7EBEDF" : NAVY }}
+                          >
+                            {plan.price}
+                          </p>
+                          <p
+                            className="text-xs leading-tight"
+                            style={{
+                              color: selected
+                                ? "rgba(255,255,255,0.5)"
+                                : "#9CA3AF",
+                            }}
+                          >
+                            {plan.description}
+                          </p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Submit */}
                 <div className="pt-2">
                   <button
                     type="submit"
                     className="submit-btn w-full py-4 rounded-xl text-sm font-extrabold text-white"
                     style={{
                       backgroundColor: NAVY,
-                      boxShadow: `0 6px 20px rgba(10,37,64,0.24)`,
+                      boxShadow: "0 6px 20px rgba(10,37,64,0.24)",
                     }}
                   >
-                    Create my free account
+                    Start my 30-day free trial
                   </button>
                   <p className="text-center text-xs text-gray-400 mt-3">
-                    Free forever. No credit card required.
+                    No credit card required. Cancel anytime.
                   </p>
                 </div>
               </form>

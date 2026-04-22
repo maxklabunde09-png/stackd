@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const NAVY = "#0A2540";
+
 export default function Navbar() {
   return (
     <nav
@@ -10,7 +12,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="text-xl font-extrabold tracking-tight"
-          style={{ color: "#0A2540" }}
+          style={{ color: NAVY }}
         >
           Stackd
         </Link>
@@ -19,11 +21,14 @@ export default function Navbar() {
           <Link href="/#features" className="hover:text-gray-900 transition-colors">
             Features
           </Link>
-          <Link href="/#examples" className="hover:text-gray-900 transition-colors">
+          <Link href="/examples/hairstylist" className="hover:text-gray-900 transition-colors">
             Examples
           </Link>
-          <Link href="/#pricing" className="hover:text-gray-900 transition-colors">
+          <Link href="/pricing" className="hover:text-gray-900 transition-colors">
             Pricing
+          </Link>
+          <Link href="/#how-it-works" className="hover:text-gray-900 transition-colors">
+            How it Works
           </Link>
         </div>
 
@@ -37,7 +42,7 @@ export default function Navbar() {
           <Link
             href="/signup"
             className="text-sm font-semibold text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "#0A2540" }}
+            style={{ backgroundColor: NAVY }}
           >
             Get started free
           </Link>
