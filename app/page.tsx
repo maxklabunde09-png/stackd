@@ -40,8 +40,9 @@ function PhoneMockup({ children }: { children: React.ReactNode }) {
 
 function BookingPhoneContent() {
   return (
-    <div className="pt-7">
-      <div className="px-4 py-4 flex items-center gap-3" style={{ background: NAVY }}>
+    <div>
+      {/* pt-7 pushes content below the notch; navy bg blends with the notch */}
+      <div className="px-4 pt-7 pb-4 flex items-center gap-3" style={{ background: NAVY }}>
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-extrabold text-white shrink-0"
           style={{ background: "#1A6B9A" }}
@@ -99,7 +100,6 @@ function BookingPhoneContent() {
 function PaymentPhoneContent() {
   return (
     <div className="pt-7 px-4 pb-6 flex flex-col items-center text-center">
-      <div className="h-10" />
       <div
         className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
         style={{ background: LIGHT_BLUE }}
@@ -316,12 +316,11 @@ function Cell({
   val: boolean | string;
   col: "solo" | "studio" | "business";
 }) {
-  const isNavy = col === "business";
   if (typeof val === "string") {
     return (
       <td
         className="py-3.5 px-4 text-center text-xs font-semibold"
-        style={{ color: isNavy ? "#7EBEDF" : NAVY }}
+        style={{ color: NAVY }}
       >
         {val}
       </td>
@@ -333,8 +332,8 @@ function Cell({
         <span
           className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
           style={
-            isNavy
-              ? { background: "rgba(255,255,255,0.14)", color: "#fff" }
+            col === "business"
+              ? { background: NAVY, color: "#fff" }
               : { background: LIGHT_BLUE, color: NAVY }
           }
         >

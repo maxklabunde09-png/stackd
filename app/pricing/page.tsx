@@ -121,12 +121,11 @@ function Cell({
   val: boolean | string;
   col: "solo" | "studio" | "business";
 }) {
-  const isNavy = col === "business";
   if (typeof val === "string") {
     return (
       <td
         className="py-3.5 px-4 text-center text-xs font-semibold"
-        style={{ color: isNavy ? "#7EBEDF" : NAVY }}
+        style={{ color: NAVY }}
       >
         {val}
       </td>
@@ -138,8 +137,8 @@ function Cell({
         <span
           className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
           style={
-            isNavy
-              ? { background: "rgba(255,255,255,0.14)", color: "#fff" }
+            col === "business"
+              ? { background: NAVY, color: "#fff" }
               : { background: LIGHT_BLUE, color: NAVY }
           }
         >
