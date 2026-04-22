@@ -5,6 +5,8 @@ import NoShowCalculator from "./components/NoShowCalculator";
 const NAVY = "#0A2540";
 const LIGHT_BLUE = "#E8F4FD";
 
+// ── Phone mockup shell ────────────────────────────────────────────────────
+
 function PhoneMockup({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative mx-auto" style={{ width: 230 }}>
@@ -27,10 +29,7 @@ function PhoneMockup({ children }: { children: React.ReactNode }) {
           />
         </div>
         {/* Screen */}
-        <div
-          className="rounded-[2.2rem] bg-white overflow-hidden"
-          style={{ minHeight: 440 }}
-        >
+        <div className="rounded-[2.2rem] bg-white overflow-hidden" style={{ minHeight: 440 }}>
           {children}
         </div>
       </div>
@@ -38,10 +37,11 @@ function PhoneMockup({ children }: { children: React.ReactNode }) {
   );
 }
 
+// ── Phone screen content ──────────────────────────────────────────────────
+
 function BookingPhoneContent() {
   return (
     <div>
-      {/* pt-7 pushes content below the notch; navy bg blends with the notch */}
       <div className="px-4 pt-7 pb-4 flex items-center gap-3" style={{ background: NAVY }}>
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-extrabold text-white shrink-0"
@@ -67,23 +67,14 @@ function BookingPhoneContent() {
             <div
               key={s.time}
               className="py-2.5 rounded-xl text-center text-xs font-semibold"
-              style={
-                s.sel
-                  ? { background: NAVY, color: "#fff" }
-                  : { background: LIGHT_BLUE, color: NAVY }
-              }
+              style={s.sel ? { background: NAVY, color: "#fff" } : { background: LIGHT_BLUE, color: NAVY }}
             >
               {s.time}
             </div>
           ))}
         </div>
-        <div
-          className="rounded-xl px-3 py-3 mb-4"
-          style={{ background: LIGHT_BLUE }}
-        >
-          <p className="text-xs font-bold mb-0.5" style={{ color: NAVY }}>
-            Haircut &amp; Style
-          </p>
+        <div className="rounded-xl px-3 py-3 mb-4" style={{ background: LIGHT_BLUE }}>
+          <p className="text-xs font-bold mb-0.5" style={{ color: NAVY }}>Haircut &amp; Style</p>
           <p className="text-xs text-gray-400">45 min · $10 deposit</p>
         </div>
         <div
@@ -106,29 +97,14 @@ function PaymentPhoneContent() {
       >
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
           <circle cx="14" cy="14" r="14" fill={NAVY} />
-          <path
-            d="M7.5 14.5l5 5 8-10"
-            stroke="#fff"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <path d="M7.5 14.5l5 5 8-10" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
-      <p className="text-xs font-bold mb-1" style={{ color: NAVY }}>
-        Payment Confirmed
-      </p>
-      <p className="font-extrabold mb-1" style={{ color: NAVY, fontSize: 28 }}>
-        $10.00
-      </p>
+      <p className="text-xs font-bold mb-1" style={{ color: NAVY }}>Payment Confirmed</p>
+      <p className="font-extrabold mb-1" style={{ color: NAVY, fontSize: 28 }}>$10.00</p>
       <p className="text-xs text-gray-400 mb-5">Deposit received</p>
-      <div
-        className="w-full rounded-xl p-3 text-left mb-3"
-        style={{ background: LIGHT_BLUE }}
-      >
-        <p className="text-xs font-bold mb-1" style={{ color: NAVY }}>
-          Appointment Details
-        </p>
+      <div className="w-full rounded-xl p-3 text-left mb-3" style={{ background: LIGHT_BLUE }}>
+        <p className="text-xs font-bold mb-1" style={{ color: NAVY }}>Appointment Details</p>
         <p className="text-xs text-gray-500">Haircut &amp; Style · $45</p>
         <p className="text-xs text-gray-500">Thursday · 11:30am</p>
         <p className="text-xs text-gray-500">Maya&apos;s Hair Studio</p>
@@ -146,43 +122,31 @@ function PaymentPhoneContent() {
 function SMSPhoneContent() {
   return (
     <div className="pt-7">
-      <div
-        className="px-4 py-3 border-b text-center"
-        style={{ borderColor: "#E8F0F8" }}
-      >
-        <p className="text-xs font-bold" style={{ color: NAVY }}>
-          Messages
-        </p>
+      <div className="px-4 py-3 border-b text-center" style={{ borderColor: "#E8F0F8" }}>
+        <p className="text-xs font-bold" style={{ color: NAVY }}>Messages</p>
         <p className="text-xs text-gray-400">Stackd Reminder</p>
       </div>
       <div className="px-4 py-5 space-y-4">
         <p className="text-center text-xs text-gray-300">Today 9:00 AM</p>
         <div
           className="rounded-2xl rounded-tl-sm px-4 py-3 text-xs leading-relaxed"
-          style={{
-            background: LIGHT_BLUE,
-            color: NAVY,
-            maxWidth: "88%",
-          }}
+          style={{ background: LIGHT_BLUE, color: NAVY, maxWidth: "88%" }}
         >
-          Hi Sarah! Reminder: your appointment with Maya&apos;s Hair Studio is
-          tomorrow at 11:30am. Reply STOP to opt out.
+          Hi Sarah! Reminder: your appointment with Maya&apos;s Hair Studio is tomorrow at 11:30am. Reply STOP to opt out.
         </div>
         <p className="text-center text-xs text-gray-300">Today 10:30 AM</p>
         <div
           className="rounded-2xl rounded-tl-sm px-4 py-3 text-xs leading-relaxed"
-          style={{
-            background: LIGHT_BLUE,
-            color: NAVY,
-            maxWidth: "88%",
-          }}
+          style={{ background: LIGHT_BLUE, color: NAVY, maxWidth: "88%" }}
         >
-          Just 1 hour until your 11:30am appointment! See you soon ✓
+          Just 1 hour until your 11:30am appointment! See you soon.
         </div>
       </div>
     </div>
   );
 }
+
+// ── Data ─────────────────────────────────────────────────────────────────
 
 const features = [
   {
@@ -198,9 +162,9 @@ const features = [
     Phone: PaymentPhoneContent,
   },
   {
-    title: "Automated reminders that reduce cancellations",
+    title: "Automated reminders that cut cancellations",
     description:
-      "SMS reminders go out 24 hours and 1 hour before every appointment, keeping clients informed and reducing last-minute cancellations.",
+      "SMS reminders go out 24 hours and 1 hour before every appointment, keeping clients informed and reducing last-minute no-shows.",
     Phone: SMSPhoneContent,
   },
 ];
@@ -220,9 +184,66 @@ const steps = [
   },
   {
     number: "03",
-    title: "Streamline your appointments",
+    title: "Grow on autopilot",
     description:
-      "Clients select a time, confirm with a deposit, and receive an automated confirmation. You focus on the work — Stackd handles the rest.",
+      "Clients select a time, confirm with a deposit, and get an automatic reminder. You focus on the work — Stackd handles the rest.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "I used to lose 3–4 appointments a week to no-shows. Since I started collecting deposits through Stackd, they've basically disappeared.",
+    name: "Marcus T.",
+    profession: "Personal Trainer · Chicago",
+    initials: "MT",
+  },
+  {
+    quote:
+      "My clients love being able to book at midnight when they think of it. I wake up to new appointments with deposits already paid — no back and forth.",
+    name: "Priya R.",
+    profession: "Interview Coach · New York",
+    initials: "PR",
+  },
+  {
+    quote:
+      "Setup took 20 minutes. My booking page looks more professional than I ever built myself and my clients keep asking how I made it.",
+    name: "Jasmine K.",
+    profession: "Hairstylist · Atlanta",
+    initials: "JK",
+  },
+];
+
+const industries = [
+  { name: "Hairstylists", benefit: "Fill your chair. Deposits mean clients show up." },
+  { name: "Personal Trainers", benefit: "Sell sessions upfront. No-shows become a thing of the past." },
+  { name: "Interview Coaches", benefit: "Collect payment before the call. Every time." },
+  { name: "Tutors", benefit: "Keep your schedule full and predictable week over week." },
+  { name: "Photographers", benefit: "Secure shoots with a deposit before you pick up your camera." },
+  { name: "Consultants", benefit: "Professional booking that matches your premium positioning." },
+];
+
+const examplePreviews = [
+  {
+    name: "Maya's Hair Studio",
+    type: "Hairstylist",
+    href: "/examples/hairstylist",
+    initials: "MH",
+    color: "#1A6B9A",
+  },
+  {
+    name: "Jake's PT Studio",
+    type: "Personal Trainer",
+    href: "/examples/trainer",
+    initials: "JP",
+    color: "#0A4A7A",
+  },
+  {
+    name: "Career Ready Coaching",
+    type: "Interview Coach",
+    href: "/examples/interviewer",
+    initials: "CR",
+    color: "#0E5A8A",
   },
 ];
 
@@ -309,6 +330,27 @@ const comparisonRows: Array<{
   { label: "Priority support", solo: false, studio: false, business: true },
 ];
 
+const homepageFaqs = [
+  {
+    q: "How long does it take to get set up?",
+    a: "Most service providers are live in under 10 minutes. Add your services, set your hours, and share your link. That's it.",
+  },
+  {
+    q: "Do my clients need to create an account to book?",
+    a: "No. Clients book directly from your page without signing up for anything. Fewer steps means more bookings.",
+  },
+  {
+    q: "What happens if a client needs to cancel?",
+    a: "You control the cancellation policy. Deposits can be kept, refunded, or applied as credit — your call.",
+  },
+  {
+    q: "Is Stackd only for solo providers?",
+    a: "No. Studio supports up to 5 team members and Business supports up to 25, each with their own booking page and a shared team dashboard.",
+  },
+];
+
+// ── Comparison table cell ─────────────────────────────────────────────────
+
 function Cell({
   val,
   col,
@@ -318,10 +360,7 @@ function Cell({
 }) {
   if (typeof val === "string") {
     return (
-      <td
-        className="py-3.5 px-4 text-center text-xs font-semibold"
-        style={{ color: NAVY }}
-      >
+      <td className="py-3.5 px-4 text-center text-xs font-semibold" style={{ color: NAVY }}>
         {val}
       </td>
     );
@@ -346,6 +385,8 @@ function Cell({
   );
 }
 
+// ── Page ─────────────────────────────────────────────────────────────────
+
 export default function HomePage() {
   return (
     <>
@@ -364,6 +405,10 @@ export default function HomePage() {
         .plan-card:hover { transform: translateY(-4px); }
         .footer-link { transition: color 0.15s ease; }
         .footer-link:hover { color: #fff; }
+        .industry-card { transition: background 0.15s ease, border-color 0.15s ease; }
+        .industry-card:hover { background: rgba(255,255,255,0.1) !important; }
+        .example-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .example-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,37,64,0.16) !important; }
       `}</style>
 
       <div className="min-h-screen bg-white text-gray-900 font-sans overflow-x-hidden">
@@ -409,11 +454,57 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Hero phone mockup */}
             <div className="anim-4">
               <PhoneMockup>
                 <BookingPhoneContent />
               </PhoneMockup>
+            </div>
+          </div>
+        </section>
+
+        {/* ── TRUST STRIP ──────────────────────────────────────────────── */}
+        <section className="py-5 border-b" style={{ background: "#fff", borderColor: "#E8F0F8" }}>
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-3">
+              {[
+                "Set up in under 10 minutes",
+                "30-day free trial",
+                "No credit card required",
+                "Cancel anytime",
+              ].map((fact) => (
+                <div key={fact} className="flex items-center gap-2 text-sm font-medium" style={{ color: NAVY }}>
+                  <span
+                    className="w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                    style={{ background: "#1A6B9A" }}
+                  >
+                    ✓
+                  </span>
+                  {fact}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── POWERED BY ───────────────────────────────────────────────── */}
+        <section className="py-8" style={{ background: "#FAFBFC" }}>
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <p
+              className="text-xs font-bold uppercase tracking-widest mb-5"
+              style={{ color: "#B0BAC8" }}
+            >
+              Powered by technology you already trust
+            </p>
+            <div className="flex flex-wrap justify-center gap-10 items-center">
+              {["Stripe", "Apple Pay", "Google Pay", "Twilio"].map((brand) => (
+                <span
+                  key={brand}
+                  className="text-sm font-extrabold tracking-tight"
+                  style={{ color: "#C8D3DF" }}
+                >
+                  {brand}
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -436,10 +527,7 @@ export default function HomePage() {
 
             <div className="space-y-28">
               {features.map((f, i) => (
-                <div
-                  key={f.title}
-                  className="grid md:grid-cols-2 gap-16 items-center"
-                >
+                <div key={f.title} className="grid md:grid-cols-2 gap-16 items-center">
                   <div className={i % 2 === 1 ? "md:order-2" : ""}>
                     <h3
                       className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight"
@@ -460,6 +548,128 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── EXAMPLES ─────────────────────────────────────────────────── */}
+        <section id="examples" className="py-24" style={{ backgroundColor: LIGHT_BLUE }}>
+          <div className="max-w-5xl mx-auto px-6">
+            <p
+              className="text-center text-xs font-bold uppercase tracking-widest mb-4"
+              style={{ color: NAVY }}
+            >
+              Examples
+            </p>
+            <h2
+              className="text-4xl font-extrabold text-center mb-5 tracking-tight"
+              style={{ color: NAVY }}
+            >
+              See it in action
+            </h2>
+            <p className="text-center text-gray-500 mb-16">
+              Click any example to explore a real Stackd booking page.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {examplePreviews.map((ex) => (
+                <Link
+                  key={ex.name}
+                  href={ex.href}
+                  className="example-card block rounded-2xl overflow-hidden bg-white"
+                  style={{ boxShadow: "0 4px 24px rgba(10,37,64,0.09)" }}
+                >
+                  <div className="px-5 py-4 flex items-center gap-3" style={{ background: NAVY }}>
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-extrabold text-white shrink-0"
+                      style={{ background: ex.color }}
+                    >
+                      {ex.initials}
+                    </div>
+                    <div>
+                      <p className="text-white text-xs font-bold">{ex.name}</p>
+                      <p className="text-xs" style={{ color: "#7EBEDF" }}>{ex.type}</p>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4">
+                    <div className="grid grid-cols-3 gap-1.5 mb-3">
+                      {["10:00am", "11:30am", "2:00pm"].map((t, i) => (
+                        <div
+                          key={t}
+                          className="py-2 rounded-lg text-center text-xs font-semibold"
+                          style={
+                            i === 1
+                              ? { background: NAVY, color: "#fff" }
+                              : { background: LIGHT_BLUE, color: NAVY }
+                          }
+                        >
+                          {t}
+                        </div>
+                      ))}
+                    </div>
+                    <div
+                      className="w-full py-2.5 rounded-lg text-center text-xs font-bold text-white"
+                      style={{ background: NAVY }}
+                    >
+                      View example →
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── TESTIMONIALS ─────────────────────────────────────────────── */}
+        <section className="py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-6">
+            <p
+              className="text-center text-xs font-bold uppercase tracking-widest mb-4"
+              style={{ color: NAVY }}
+            >
+              What service pros say
+            </p>
+            <h2
+              className="text-4xl font-extrabold text-center mb-16 tracking-tight"
+              style={{ color: NAVY }}
+            >
+              Real businesses. Real results.
+            </h2>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {testimonials.map((t) => (
+                <div
+                  key={t.name}
+                  className="rounded-2xl p-7 flex flex-col"
+                  style={{
+                    background: "#fff",
+                    border: "1.5px solid #E8F0F8",
+                    boxShadow: "0 4px 24px rgba(10,37,64,0.06)",
+                  }}
+                >
+                  {/* Stars */}
+                  <div className="flex gap-0.5 mb-5">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <span key={i} className="text-yellow-400 text-sm">★</span>
+                    ))}
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                      style={{ background: NAVY }}
+                    >
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold" style={{ color: NAVY }}>{t.name}</p>
+                      <p className="text-xs text-gray-400">{t.profession}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── WHO IS STACKD FOR ────────────────────────────────────────── */}
         <section className="py-24" style={{ background: NAVY }}>
           <div className="max-w-5xl mx-auto px-6">
@@ -469,94 +679,66 @@ export default function HomePage() {
             >
               Who is Stackd for
             </p>
-            <h2 className="text-4xl font-extrabold text-center mb-16 tracking-tight text-white">
-              Built for both sides of the appointment
+            <h2 className="text-4xl font-extrabold text-center mb-5 tracking-tight text-white">
+              Built for service businesses
             </h2>
+            <p className="text-center mb-14" style={{ color: "#7EBEDF" }}>
+              If clients pay you for your time, Stackd was made for you.
+            </p>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Left — businesses */}
-              <div
-                className="rounded-2xl p-8"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
-              >
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "#7EBEDF" }}
+            {/* Industry grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+              {industries.map((ind) => (
+                <div
+                  key={ind.name}
+                  className="industry-card rounded-2xl p-5"
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                  }}
                 >
-                  For service businesses
-                </p>
-                <h3 className="text-xl font-extrabold text-white mb-6">
-                  Your all-in-one booking system
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Hairstylists",
-                    "Personal trainers",
-                    "Interview coaches",
-                    "Tutors",
-                    "Photographers",
-                    "Consultants",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-3 text-sm"
-                      style={{ color: "rgba(255,255,255,0.8)" }}
-                    >
-                      <span
-                        className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                        style={{ background: "#1A6B9A", color: "#fff" }}
-                      >
-                        ✓
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <p className="font-bold text-white text-sm mb-1">{ind.name}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+                    {ind.benefit}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-              {/* Right — clients */}
-              <div
-                className="rounded-2xl p-8"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
+            {/* For their clients strip */}
+            <div
+              className="rounded-2xl p-6"
+              style={{
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              <p
+                className="text-xs font-bold uppercase tracking-widest mb-4"
+                style={{ color: "#7EBEDF" }}
               >
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "#7EBEDF" }}
-                >
-                  For their clients
-                </p>
-                <h3 className="text-xl font-extrabold text-white mb-6">
-                  A booking experience they&apos;ll love
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Easy online booking",
-                    "Secure payments",
-                    "Automatic reminders",
-                    "No more back and forth texts",
-                    "Works on any device",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-3 text-sm"
-                      style={{ color: "rgba(255,255,255,0.8)" }}
+                For their clients
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+                {[
+                  "Easy online booking",
+                  "Secure payments",
+                  "Automatic reminders",
+                  "No more back-and-forth texts",
+                  "Works on any device",
+                ].map((benefit) => (
+                  <div key={benefit} className="flex items-center gap-2">
+                    <span
+                      className="w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+                      style={{ background: "#1A6B9A", color: "#fff" }}
                     >
-                      <span
-                        className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                        style={{ background: "#1A6B9A", color: "#fff" }}
-                      >
-                        ✓
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                      ✓
+                    </span>
+                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>
+                      {benefit}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -670,9 +852,7 @@ export default function HomePage() {
                   </p>
                   <p
                     className="text-xs mb-4"
-                    style={{
-                      color: plan.highlight ? "rgba(255,255,255,0.45)" : "#9CA3AF",
-                    }}
+                    style={{ color: plan.highlight ? "rgba(255,255,255,0.45)" : "#9CA3AF" }}
                   >
                     {plan.users}
                   </p>
@@ -694,9 +874,7 @@ export default function HomePage() {
 
                   <p
                     className="text-sm mb-8"
-                    style={{
-                      color: plan.highlight ? "rgba(255,255,255,0.6)" : "#6B7280",
-                    }}
+                    style={{ color: plan.highlight ? "rgba(255,255,255,0.6)" : "#6B7280" }}
                   >
                     {plan.description}
                   </p>
@@ -716,9 +894,7 @@ export default function HomePage() {
                         </span>
                         <span
                           style={{
-                            color: plan.highlight
-                              ? "rgba(255,255,255,0.85)"
-                              : "#374151",
+                            color: plan.highlight ? "rgba(255,255,255,0.85)" : "#374151",
                           }}
                         >
                           {feat}
@@ -740,9 +916,7 @@ export default function HomePage() {
                   </Link>
                   <p
                     className="text-center text-xs"
-                    style={{
-                      color: plan.highlight ? "rgba(255,255,255,0.35)" : "#9CA3AF",
-                    }}
+                    style={{ color: plan.highlight ? "rgba(255,255,255,0.35)" : "#9CA3AF" }}
                   >
                     30-day free trial. No credit card required. Cancel anytime.
                   </p>
@@ -751,10 +925,7 @@ export default function HomePage() {
             </div>
 
             {/* Comparison table */}
-            <div
-              className="overflow-x-auto rounded-2xl border"
-              style={{ borderColor: "#E8F0F8" }}
-            >
+            <div className="overflow-x-auto rounded-2xl border" style={{ borderColor: "#E8F0F8" }}>
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr>
@@ -786,13 +957,8 @@ export default function HomePage() {
                 </thead>
                 <tbody>
                   {comparisonRows.map((row, i) => (
-                    <tr
-                      key={row.label}
-                      style={{ background: i % 2 === 0 ? "#fff" : "#FAFBFC" }}
-                    >
-                      <td className="py-3.5 px-5 text-sm text-gray-600 font-medium">
-                        {row.label}
-                      </td>
+                    <tr key={row.label} style={{ background: i % 2 === 0 ? "#fff" : "#FAFBFC" }}>
+                      <td className="py-3.5 px-5 text-sm text-gray-600 font-medium">{row.label}</td>
                       <Cell val={row.solo} col="solo" />
                       <Cell val={row.studio} col="studio" />
                       <Cell val={row.business} col="business" />
@@ -804,15 +970,47 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── FAQ ──────────────────────────────────────────────────────── */}
+        <section className="py-24" style={{ backgroundColor: LIGHT_BLUE }}>
+          <div className="max-w-2xl mx-auto px-6">
+            <h2
+              className="text-3xl font-extrabold text-center mb-12 tracking-tight"
+              style={{ color: NAVY }}
+            >
+              Common questions
+            </h2>
+            <div className="space-y-4">
+              {homepageFaqs.map((faq) => (
+                <div
+                  key={faq.q}
+                  className="rounded-2xl p-6 bg-white"
+                  style={{ boxShadow: "0 2px 12px rgba(10,37,64,0.06)" }}
+                >
+                  <p className="font-bold text-sm mb-2" style={{ color: NAVY }}>{faq.q}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Link
+                href="/pricing"
+                className="text-sm font-semibold underline underline-offset-2"
+                style={{ color: NAVY }}
+              >
+                See all FAQs and full pricing →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA BAND ─────────────────────────────────────────────────── */}
         <section className="py-24" style={{ background: NAVY }}>
           <div className="max-w-2xl mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
-              Ready to grow your business?
+              Ready to stop losing money to no-shows?
             </h2>
             <p className="mb-10" style={{ color: "#7EBEDF" }}>
-              Join service professionals already using Stackd to save time and
-              reduce no-shows.
+              Join service professionals using Stackd to book clients, collect deposits, and grow on autopilot.
             </p>
             <Link
               href="/signup"
@@ -830,10 +1028,7 @@ export default function HomePage() {
         {/* ── FOOTER ───────────────────────────────────────────────────── */}
         <footer
           className="border-t py-14"
-          style={{
-            borderColor: "rgba(255,255,255,0.07)",
-            background: "#071929",
-          }}
+          style={{ borderColor: "rgba(255,255,255,0.07)", background: "#071929" }}
         >
           <div className="max-w-5xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
@@ -843,28 +1038,13 @@ export default function HomePage() {
                   The booking platform for service pros.
                 </p>
               </div>
-              <nav
-                className="flex flex-wrap gap-8 text-sm"
-                style={{ color: "#7EBEDF" }}
-              >
-                <Link href="/#features" className="footer-link">
-                  Features
-                </Link>
-                <Link href="/pricing" className="footer-link">
-                  Pricing
-                </Link>
-                <Link href="/examples/hairstylist" className="footer-link">
-                  See Example
-                </Link>
-                <Link href="/signup" className="footer-link">
-                  Sign Up
-                </Link>
-                <Link href="#" className="footer-link">
-                  Privacy
-                </Link>
-                <Link href="#" className="footer-link">
-                  Terms
-                </Link>
+              <nav className="flex flex-wrap gap-8 text-sm" style={{ color: "#7EBEDF" }}>
+                <Link href="/#features" className="footer-link">Features</Link>
+                <Link href="/#examples" className="footer-link">Examples</Link>
+                <Link href="/pricing" className="footer-link">Pricing</Link>
+                <Link href="/signup" className="footer-link">Sign Up</Link>
+                <Link href="#" className="footer-link">Privacy</Link>
+                <Link href="#" className="footer-link">Terms</Link>
               </nav>
               <p className="text-xs" style={{ color: "#3D6E8F" }}>
                 © 2025 Stackd, Inc.

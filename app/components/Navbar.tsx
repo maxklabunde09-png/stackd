@@ -21,7 +21,7 @@ export default function Navbar() {
           <Link href="/#features" className="hover:text-gray-900 transition-colors">
             Features
           </Link>
-          <Link href="/examples/hairstylist" className="hover:text-gray-900 transition-colors">
+          <Link href="/#examples" className="hover:text-gray-900 transition-colors">
             Examples
           </Link>
           <Link href="/pricing" className="hover:text-gray-900 transition-colors">
