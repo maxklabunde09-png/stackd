@@ -184,8 +184,7 @@ export default function PricingPage() {
               Business works out to just $7 per team member per month.
             </p>
             <p className="text-gray-400 text-sm">
-              All plans include a 30-day free trial. No credit card required.
-              Cancel anytime.
+              All plans include a 30-day free trial. Cancel before day 30 and you won&apos;t be charged.
             </p>
           </div>
         </section>
@@ -311,7 +310,7 @@ export default function PricingPage() {
                         : "#9CA3AF",
                     }}
                   >
-                    30-day free trial. No credit card required. Cancel anytime.
+                    30-day free trial. Cancel anytime.
                   </p>
                 </div>
               ))}
@@ -420,7 +419,7 @@ export default function PricingPage() {
               Start your 30-day free trial today
             </h2>
             <p className="mb-10" style={{ color: "#7EBEDF" }}>
-              No credit card required. No commitment. Cancel anytime.
+              Cancel before day 30 and you won&apos;t be charged.
             </p>
             <Link
               href="/signup"

@@ -93,16 +93,6 @@ export default function SignupPage() {
           >
             Stackd
           </Link>
-          <p className="text-sm text-gray-500">
-            Already have an account?{" "}
-            <Link
-              href="#"
-              className="font-semibold hover:underline"
-              style={{ color: NAVY }}
-            >
-              Log in
-            </Link>
-          </p>
         </header>
 
         {/* Main */}
@@ -152,7 +142,7 @@ export default function SignupPage() {
                   Start your 30-day free trial
                 </h1>
                 <p className="text-sm text-gray-500">
-                  No credit card required. Cancel anytime.
+                  Try Stackd free for 30 days. Cancel anytime.
                 </p>
               </div>
 
@@ -367,7 +357,7 @@ export default function SignupPage() {
                     Start my 30-day free trial
                   </button>
                   <p className="text-center text-xs text-gray-400 mt-3">
-                    No credit card required. Cancel anytime.
+                    Cancel before day 30 and you won&apos;t be charged.
                   </p>
                 </div>
               </form>

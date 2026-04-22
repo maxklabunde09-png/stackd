@@ -190,29 +190,6 @@ const steps = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "I used to lose 3–4 appointments a week to no-shows. Since I started collecting deposits through Stackd, they've basically disappeared.",
-    name: "Marcus T.",
-    profession: "Personal Trainer · Chicago",
-    initials: "MT",
-  },
-  {
-    quote:
-      "My clients love being able to book at midnight when they think of it. I wake up to new appointments with deposits already paid — no back and forth.",
-    name: "Priya R.",
-    profession: "Interview Coach · New York",
-    initials: "PR",
-  },
-  {
-    quote:
-      "Setup took 20 minutes. My booking page looks more professional than I ever built myself and my clients keep asking how I made it.",
-    name: "Jasmine K.",
-    profession: "Hairstylist · Atlanta",
-    initials: "JK",
-  },
-];
 
 const industries = [
   { name: "Hairstylists", benefit: "Fill your chair. Deposits mean clients show up." },
@@ -469,7 +446,7 @@ export default function HomePage() {
               {[
                 "Set up in under 10 minutes",
                 "30-day free trial",
-                "No credit card required",
+                "Works on iPhone, Android & web",
                 "Cancel anytime",
               ].map((fact) => (
                 <div key={fact} className="flex items-center gap-2 text-sm font-medium" style={{ color: NAVY }}>
@@ -616,59 +593,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── TESTIMONIALS ─────────────────────────────────────────────── */}
-        <section className="py-24 bg-white">
-          <div className="max-w-5xl mx-auto px-6">
-            <p
-              className="text-center text-xs font-bold uppercase tracking-widest mb-4"
-              style={{ color: NAVY }}
-            >
-              What service pros say
-            </p>
-            <h2
-              className="text-4xl font-extrabold text-center mb-16 tracking-tight"
-              style={{ color: NAVY }}
-            >
-              Real businesses. Real results.
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonials.map((t) => (
-                <div
-                  key={t.name}
-                  className="rounded-2xl p-7 flex flex-col"
-                  style={{
-                    background: "#fff",
-                    border: "1.5px solid #E8F0F8",
-                    boxShadow: "0 4px 24px rgba(10,37,64,0.06)",
-                  }}
-                >
-                  {/* Stars */}
-                  <div className="flex gap-0.5 mb-5">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <span key={i} className="text-yellow-400 text-sm">★</span>
-                    ))}
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                      style={{ background: NAVY }}
-                    >
-                      {t.initials}
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold" style={{ color: NAVY }}>{t.name}</p>
-                      <p className="text-xs text-gray-400">{t.profession}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── WHO IS STACKD FOR ────────────────────────────────────────── */}
         <section className="py-24" style={{ background: NAVY }}>
@@ -813,7 +737,7 @@ export default function HomePage() {
               Solo is $50/month. Studio works out to $19 per team member. Business works out to just $7 per team member per month.
             </p>
             <p className="text-center text-gray-400 mb-16 text-sm">
-              All plans include a 30-day free trial. No credit card required. Cancel anytime.
+              All plans include a 30-day free trial. Cancel before day 30 and you won&apos;t be charged.
             </p>
 
             {/* Plan cards */}
@@ -918,7 +842,7 @@ export default function HomePage() {
                     className="text-center text-xs"
                     style={{ color: plan.highlight ? "rgba(255,255,255,0.35)" : "#9CA3AF" }}
                   >
-                    30-day free trial. No credit card required. Cancel anytime.
+                    30-day free trial. Cancel anytime.
                   </p>
                 </div>
               ))}
@@ -1020,7 +944,7 @@ export default function HomePage() {
               Start your 30-day free trial
             </Link>
             <p className="text-xs mt-5" style={{ color: "#4A7A9B" }}>
-              No credit card required. Cancel anytime.
+              Cancel before day 30 and you won&apos;t be charged.
             </p>
           </div>
         </section>

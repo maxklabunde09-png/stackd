@@ -34,12 +34,6 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="#"
-            className="hidden md:inline text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-          >
-            Login
-          </Link>
-          <Link
             href="/signup"
             className="text-sm font-semibold text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
             style={{ backgroundColor: NAVY }}
