@@ -207,21 +207,21 @@ const examplePreviews = [
   {
     name: "Maya's Hair Studio",
     type: "Hairstylist",
-    href: "/examples/hairstylist",
+    href: "/book/maya",
     initials: "MH",
     color: "#1A6B9A",
   },
   {
     name: "Jake's PT Studio",
     type: "Personal Trainer",
-    href: "/examples/trainer",
+    href: "/book/jake",
     initials: "JP",
     color: "#0A4A7A",
   },
   {
     name: "Career Ready Coaching",
     type: "Interview Coach",
-    href: "/examples/interviewer",
+    href: "/book/sarah",
     initials: "CR",
     color: "#0E5A8A",
   },
@@ -259,8 +259,8 @@ const plans = [
       "Client history across staff",
       "Email support",
     ],
-    highlight: false,
-    badge: null,
+    highlight: true,
+    badge: "Most Popular",
   },
   {
     name: "Business",
@@ -276,8 +276,8 @@ const plans = [
       "Team management — add and remove staff",
       "Priority support",
     ],
-    highlight: true,
-    badge: "Most Popular",
+    highlight: false,
+    badge: null,
   },
 ];
 
@@ -561,10 +561,10 @@ export default function HomePage() {
               className="font-bold text-center mb-5 tracking-tight leading-tight"
               style={{ fontSize: "clamp(34px,5vw,48px)", color: "#1D1D1F" }}
             >
-              See it in action
+              What your clients see
             </h2>
             <p className="text-center mb-16" style={{ fontSize: 17, color: "#6E6E73" }}>
-              Click any example to explore a real Stackd booking page.
+              Click any card to try a live Stackd booking page — exactly as your clients would use it.
             </p>
 
             <div className="grid md:grid-cols-3 gap-5">
@@ -603,7 +603,7 @@ export default function HomePage() {
                       className="w-full py-2.5 rounded-lg text-center text-[13px] font-semibold text-white"
                       style={{ background: NAVY }}
                     >
-                      View example →
+                      Try it live →
                     </div>
                   </div>
                 </Link>

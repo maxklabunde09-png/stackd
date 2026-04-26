@@ -36,8 +36,8 @@ const plans = [
       "Client history across staff",
       "Email support",
     ],
-    highlight: false,
-    badge: null,
+    highlight: true,
+    badge: "Most Popular",
   },
   {
     name: "Business",
@@ -53,8 +53,8 @@ const plans = [
       "Team management — add and remove staff",
       "Priority support",
     ],
-    highlight: true,
-    badge: "Most Popular",
+    highlight: false,
+    badge: null,
   },
 ];
 
