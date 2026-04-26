@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Navbar from "../components/Navbar";
+import Navbar, { StackdLogo } from "../components/Navbar";
 
 const NAVY = "#0A2540";
 const SUBTLE = "#F5F5F7";
@@ -422,7 +422,10 @@ export default function PricingPage() {
           <div className="max-w-5xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
               <div>
-                <p className="text-[17px] font-bold text-white mb-1">Stackd</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 20, marginBottom: 6, letterSpacing: "-0.02em", color: "#fff" }}>
+                  <StackdLogo size={24} dark={true} />
+                  Stackd
+                </div>
                 <p style={{ fontSize: 14, color: "rgba(255,255,255,0.38)" }}>
                   The booking platform for service pros.
                 </p>
