@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 
+const NAVY = "#0A2540";
+
 const services = [
   { name: "Mock Interview", duration: "60 min", price: 120 },
   { name: "Resume Review", duration: "45 min", price: 85 },
@@ -16,38 +18,40 @@ const reviews = [
 
 export default function InterviewerExample() {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
+    <div className="min-h-screen bg-white font-sans" style={{ color: "#1D1D1F" }}>
       <Navbar />
 
-      {/* Page label */}
-      <div className="max-w-5xl mx-auto px-6 pt-10">
+      <div className="max-w-5xl mx-auto px-6 pt-10 pb-2">
         <div
-          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6"
-          style={{ backgroundColor: "#E8F4FD", color: "#0A2540" }}
+          className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1.5 rounded-full"
+          style={{ backgroundColor: "#F5F5F7", color: "#6E6E73" }}
         >
-          💼 Example page — Interview Coach
+          <span>💼</span>
+          Example page — Interview Coach
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 pb-20">
-        <div className="grid md:grid-cols-3 gap-10">
+      <div className="max-w-5xl mx-auto px-6 pt-8 pb-24">
+        <div className="grid md:grid-cols-3 gap-12">
 
           {/* Left — profile */}
           <div className="md:col-span-1">
-            <div className="w-full aspect-square rounded-2xl mb-5 flex items-center justify-center text-white text-5xl font-bold"
-              style={{ background: "linear-gradient(135deg, #0A2540 0%, #1a6891 100%)" }}>
+            <div
+              className="w-full aspect-square rounded-3xl mb-6 flex items-center justify-center text-white text-5xl font-bold"
+              style={{ background: "linear-gradient(135deg, #0A2540 0%, #1a6891 100%)" }}
+            >
               SC
             </div>
-            <h1 className="text-2xl font-extrabold text-gray-900 mb-1">Sarah Chen Career Coaching</h1>
-            <p className="text-sm text-gray-400 mb-4">San Francisco, CA · Ex-FAANG Recruiter</p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-6">
+            <h1 className="font-bold mb-1" style={{ fontSize: 22, color: "#1D1D1F" }}>Sarah Chen Career Coaching</h1>
+            <p className="mb-4" style={{ fontSize: 14, color: "#86868B" }}>San Francisco, CA · Ex-FAANG Recruiter</p>
+            <p className="leading-relaxed mb-6" style={{ fontSize: 14, color: "#6E6E73" }}>
               Helped 300+ candidates land offers at Google, Meta, and top startups. Former recruiter turned career coach — I know exactly what hiring managers are looking for.
             </p>
             <div className="flex items-center gap-2 mb-6">
               <div className="flex text-yellow-400 text-sm">{"★★★★★"}</div>
-              <span className="text-sm text-gray-500">5.0 · 211 reviews</span>
+              <span style={{ fontSize: 13, color: "#6E6E73" }}>5.0 · 211 reviews</span>
             </div>
-            <div className="space-y-2 text-sm text-gray-500">
+            <div className="space-y-2" style={{ fontSize: 13, color: "#6E6E73" }}>
               <p>📍 Remote (Zoom sessions)</p>
               <p>🕐 Tue–Sat, 10 AM – 7 PM PT</p>
               <p>💳 Deposits required at booking</p>
@@ -56,23 +60,25 @@ export default function InterviewerExample() {
 
           {/* Right — services + booking */}
           <div className="md:col-span-2">
-            <h2 className="text-xl font-bold text-gray-900 mb-5">Services & Pricing</h2>
-            <div className="space-y-3 mb-8">
+            <h2 className="font-semibold mb-5" style={{ fontSize: 18, color: "#1D1D1F" }}>Services &amp; Pricing</h2>
+            <div className="space-y-2 mb-10">
               {services.map((s) => (
-                <div key={s.name} className="flex items-center justify-between rounded-xl border border-gray-100 px-5 py-4 hover:shadow-sm transition-shadow"
-                  style={{ backgroundColor: "#F9FAFB" }}>
+                <div
+                  key={s.name}
+                  className="flex items-center justify-between rounded-2xl px-5 py-4 transition-shadow hover:shadow-sm"
+                  style={{ backgroundColor: "#F5F5F7", border: "1px solid rgba(0,0,0,0.04)" }}
+                >
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">{s.name}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{s.duration}</p>
+                    <p className="font-semibold" style={{ fontSize: 14, color: "#1D1D1F" }}>{s.name}</p>
+                    <p className="mt-0.5" style={{ fontSize: 12, color: "#86868B" }}>{s.duration}</p>
                   </div>
-                  <span className="font-bold text-gray-800">${s.price}</span>
+                  <span className="font-bold" style={{ fontSize: 15, color: "#1D1D1F" }}>${s.price}</span>
                 </div>
               ))}
             </div>
 
-            {/* Companies */}
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Clients placed at</h2>
-            <div className="grid grid-cols-3 gap-3 mb-8">
+            <h2 className="font-semibold mb-4" style={{ fontSize: 18, color: "#1D1D1F" }}>Clients placed at</h2>
+            <div className="grid grid-cols-3 gap-3 mb-10">
               {[
                 { label: "Google", colors: ["#4285F4", "#34A853"] },
                 { label: "Meta", colors: ["#0668E1", "#00B2FF"] },
@@ -83,7 +89,7 @@ export default function InterviewerExample() {
               ].map(({ label, colors }) => (
                 <div
                   key={label}
-                  className="aspect-square rounded-xl flex items-center justify-center text-white font-bold text-sm"
+                  className="aspect-square rounded-2xl flex items-center justify-center text-white font-bold text-sm"
                   style={{ background: `linear-gradient(135deg, ${colors[0]} 0%, ${colors[1]} 100%)` }}
                 >
                   {label}
@@ -91,16 +97,19 @@ export default function InterviewerExample() {
               ))}
             </div>
 
-            {/* Reviews */}
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Reviews</h2>
-            <div className="space-y-3 mb-8">
+            <h2 className="font-semibold mb-4" style={{ fontSize: 18, color: "#1D1D1F" }}>Reviews</h2>
+            <div className="space-y-3 mb-10">
               {reviews.map((r) => (
-                <div key={r.name} className="rounded-xl border border-gray-100 p-4" style={{ backgroundColor: "#F9FAFB" }}>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-semibold text-sm text-gray-800">{r.name}</span>
+                <div
+                  key={r.name}
+                  className="rounded-2xl p-5"
+                  style={{ background: "#F5F5F7", border: "1px solid rgba(0,0,0,0.04)" }}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold" style={{ fontSize: 13, color: "#1D1D1F" }}>{r.name}</span>
                     <span className="text-yellow-400 text-xs">{"★".repeat(r.stars)}</span>
                   </div>
-                  <p className="text-sm text-gray-500">{r.text}</p>
+                  <p style={{ fontSize: 13, color: "#6E6E73" }}>{r.text}</p>
                 </div>
               ))}
             </div>
@@ -108,16 +117,18 @@ export default function InterviewerExample() {
             {/* CTA */}
             <div
               className="rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4"
-              style={{ backgroundColor: "#E8F4FD" }}
+              style={{ background: "linear-gradient(160deg, #0A2540 0%, #0E3A66 100%)" }}
             >
               <div>
-                <p className="font-bold text-gray-900">Ready to land your next offer?</p>
-                <p className="text-sm text-gray-500 mt-0.5">$20 deposit required · remainder due at session</p>
+                <p className="font-semibold text-white" style={{ fontSize: 15 }}>Ready to land your next offer?</p>
+                <p className="mt-0.5" style={{ fontSize: 13, color: "rgba(255,255,255,0.55)" }}>
+                  $20 deposit required · remainder due at session
+                </p>
               </div>
               <Link
                 href="/book/sarah"
-                className="whitespace-nowrap text-sm font-semibold text-white px-6 py-3 rounded-xl transition-opacity hover:opacity-90 shadow-sm"
-                style={{ backgroundColor: "#0A2540" }}
+                className="whitespace-nowrap font-semibold text-white px-6 py-3 rounded-full transition-opacity hover:opacity-80"
+                style={{ fontSize: 14, backgroundColor: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.2)" }}
               >
                 Book now →
               </Link>
@@ -126,8 +137,10 @@ export default function InterviewerExample() {
         </div>
       </div>
 
-      <footer className="border-t border-gray-100 py-8 text-center text-xs text-gray-400">
-        Booked with <span className="font-semibold" style={{ color: "#0A2540" }}>Stackd</span> &middot; Create your own free page
+      <footer className="border-t py-8 text-center" style={{ borderColor: "rgba(0,0,0,0.06)", fontSize: 13, color: "#86868B" }}>
+        Booked with{" "}
+        <span className="font-semibold" style={{ color: NAVY }}>Stackd</span>
+        {" "}· Create your own free page
       </footer>
     </div>
   );
